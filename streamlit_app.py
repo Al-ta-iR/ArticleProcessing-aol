@@ -10,8 +10,9 @@ def main():
     st.title("Article Processing")
     article_text = st.text_area("Статья", placeholder="Введите статью...")
     if article_text != "":
-        for module_name, module in modules.items():
-            st.write(f"{module.get('result_title')} — {module.get('function')(article_text)}")
+        module_name = "language_classification"
+        module = modules[module_name]
+        st.write(f"{module['result_title']} — {module['function'](article_text)}")
         st.write("Обработка статьи завершена!")
     else:
         st.write("После ввода статьи здесь отобразятся результаты ее обработки")
